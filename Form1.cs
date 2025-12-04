@@ -17,7 +17,7 @@ namespace CardGame
 
         }
 
-        private void shuffleDeck()
+        private void shuffleDeck()//a durstenfeld shuffle of the deck
         {
             Random rnd = new Random();
             int currentIndex = 0;
@@ -29,7 +29,7 @@ namespace CardGame
                 currentIndex++;
             }
         }
-        private void swap(int currentIndex,int randomIndex)
+        private void swap(int currentIndex,int randomIndex)//method to swap two cards
         {
             Card temp = deck[currentIndex];
             deck[currentIndex] = deck[randomIndex];
