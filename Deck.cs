@@ -13,6 +13,7 @@ namespace CardGame
         public Deck ()
         {
             Card[] cards = CardLoader.LoadCards(imageFolder);
+            this.cards = cards;
         }
         public void ShuffleDeck()//a durstenfeld shuffle of the deck
         {

@@ -45,11 +45,50 @@ namespace CardGame
                     cards[y, x] = deck.cards[count];
                     pictureBoxes[y, x].Image = deck.cards[count].face;
                     count++;
-                }
-                
+                }                
             }
-
+            moveAces();
         }
-
+        public void moveAces()
+        {
+            for (int y = 0; y < 4; y++)
+            {
+                for (int x = 1; x < 14; x++)
+                {
+                    if (cards[y, x] != null && cards[y, x].value == 1 && cards[y,x].suit=="C")
+                    {
+                        Card aceCard = cards[y, x];
+                        cards[y, x] = null;
+                        cards[0, 0] = aceCard;
+                        pictureBoxes[0, 0].Image = aceCard.face;
+                        pictureBoxes[y, x].Image = null;
+                    }
+                    else if (cards[y, x] != null && cards[y, x].value == 1 && cards[y, x].suit == "D")
+                    {
+                        Card aceCard = cards[y, x];
+                        cards[y, x] = null;
+                        cards[1, 0] = aceCard;
+                        pictureBoxes[1, 0].Image = aceCard.face;
+                        pictureBoxes[y, x].Image = null;
+                    }
+                    else if (cards[y, x] != null && cards[y, x].value == 1 && cards[y, x].suit == "H")
+                    {
+                        Card aceCard = cards[y, x];
+                        cards[y, x] = null;
+                        cards[2, 0] = aceCard;
+                        pictureBoxes[2, 0].Image = aceCard.face;
+                        pictureBoxes[y, x].Image = null;
+                    }
+                    else if (cards[y, x] != null && cards[y, x].value == 1 && cards[y, x].suit == "S")
+                    {
+                        Card aceCard = cards[y, x];
+                        cards[y, x] = null;
+                        cards[3, 0] = aceCard;
+                        pictureBoxes[3, 0].Image = aceCard.face;
+                        pictureBoxes[y, x].Image = null;
+                    }
+                }
+            }
+        }
     }
 }
