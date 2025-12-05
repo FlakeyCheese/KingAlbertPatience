@@ -22,7 +22,7 @@ namespace CardGame
                 pictureBoxes[i] = new PictureBox
                 {
                     Size = new Size(100, 140),
-                    Location = new Point(i*100 +10, yPosition),
+                    Location = new Point(i*110 +10, yPosition),
                     BorderStyle = BorderStyle.FixedSingle,
                     SizeMode = PictureBoxSizeMode.StretchImage
                 };
@@ -39,6 +39,7 @@ namespace CardGame
                 this.pictureBoxes[currentCardIndex].Image = card.face;
             }
         }
+        
        
     }
 }
