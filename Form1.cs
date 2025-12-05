@@ -18,8 +18,23 @@ namespace CardGame
             Deck deck = new Deck();            
             deck.ShuffleDeck();      
             board.DealCards(deck);
-
-
+        }
+        public void commonDragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+        public void commonDragDrop(object sender, DragEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            PictureBox draggedPB = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            Image temp = pb.Image;
+            pb.Image = draggedPB.Image;
+            draggedPB.Image = temp;
+        }
+        public void commonMouseDown(object sender, MouseEventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            pb.DoDragDrop(pb, DragDropEffects.Move);
         }
        
 

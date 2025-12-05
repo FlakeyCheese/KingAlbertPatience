@@ -31,6 +31,9 @@ namespace CardGame
                         SizeMode = PictureBoxSizeMode.StretchImage
                     };
                     form.Controls.Add(pictureBoxes[y,x]);
+                    pictureBoxes[y,x].MouseDown += new MouseEventHandler(form.commonMouseDown);
+                    pictureBoxes[y,x].DragEnter += new DragEventHandler(form.commonDragEnter);
+                    pictureBoxes[y,x].DragDrop += new DragEventHandler(form.commonDragDrop);
                 }
                 yPosition += 150;
             }
