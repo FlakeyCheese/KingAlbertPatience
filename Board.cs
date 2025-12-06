@@ -28,7 +28,8 @@ namespace CardGame
                         Size = new Size(100, 140),
                         Location = new Point(x * 110 + 10, yPosition),
                         BorderStyle = BorderStyle.FixedSingle,
-                        SizeMode = PictureBoxSizeMode.StretchImage
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        AllowDrop = true
                     };
                     form.Controls.Add(pictureBoxes[y,x]);
                     pictureBoxes[y,x].MouseDown += new MouseEventHandler(form.commonMouseDown);
@@ -50,6 +51,7 @@ namespace CardGame
                     count++;
                 }                
             }
+            
             moveAces();
         }
         public void moveAces()
@@ -58,6 +60,7 @@ namespace CardGame
             {
                 for (int x = 1; x < 14; x++)
                 {
+                    
                     if (cards[y, x] != null && cards[y, x].value == 1 && cards[y,x].suit=="C")
                     {
                         Card aceCard = cards[y, x];
@@ -92,6 +95,22 @@ namespace CardGame
                     }
                 }
             }
+        }
+        // Method to find the array coordinates (y, x) for a given PictureBox
+        public (int y, int x) GetCardIndices(PictureBox pb)
+        {
+            for (int y = 0; y < 4; y++)
+            {
+                for (int x = 0; x < 14; x++)
+                {
+                    if (pictureBoxes[y, x] == pb)
+                    {
+                        return (y, x); // Returns a ValueTuple (row, column)
+                    }
+                }
+            }
+            // Return an invalid index if not found
+            return (-1, -1);
         }
     }
 }
