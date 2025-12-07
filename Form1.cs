@@ -135,6 +135,7 @@ namespace CardGame
         }
         public void PlayGoodSound()
         {   
+            if (RBSoundOn.Checked== false) return;
             String soundFile = @"C:\Windows\Media\chimes.wav";
             soundPlayer.SoundLocation = soundFile;
             soundPlayer.Load();
@@ -142,6 +143,7 @@ namespace CardGame
         }
         public void PlayBadSound()
         {
+            if (RBSoundOn.Checked == false) return;
             String soundFile = @"C:\Windows\Media\Windows Critical Stop.wav";
             soundPlayer.SoundLocation = soundFile;
             soundPlayer.Load();
