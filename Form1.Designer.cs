@@ -35,7 +35,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Ravie", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, -1);
+            label1.Location = new Point(22, 9);
             label1.Name = "label1";
             label1.Size = new Size(445, 40);
             label1.TabIndex = 0;
@@ -49,6 +49,7 @@
             Controls.Add(label1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
+            Padding = new Padding(10);
             Text = "King Albert Solitaire";
             Load += Form1_Load;
             ResumeLayout(false);

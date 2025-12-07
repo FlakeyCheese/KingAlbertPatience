@@ -26,7 +26,7 @@ namespace CardGame
             if (e.Data.GetDataPresent(typeof(PictureBox)))
             {
                 // Allow the Move effect, which will show the correct cursor
-                e.Effect = DragDropEffects.Move;
+                e.Effect = DragDropEffects.Copy;
             }
             else
             {
@@ -39,9 +39,27 @@ namespace CardGame
         {
             // The PictureBox that was dropped ON
             PictureBox targetPB = (PictureBox)sender;
+            
 
             // The PictureBox that was dragged (the source)
             PictureBox draggedPB = (PictureBox)e.Data.GetData(typeof(PictureBox));
+            
+            // --- 0. Validation Checks ---
+            if (targetPB == draggedPB)
+            {
+                // If the source and target are the same, do nothing
+                return;
+            }
+            if(draggedPB.Image == null)
+            {
+                // If there's no image to move, do nothing
+                return;
+            }
+            if(targetPB.Image != null)
+            {
+                // If the target already has an image, do nothing
+                return;
+            }
 
             // --- 1. Perform the Visual Cut and Paste (Move) ---
 
@@ -70,7 +88,7 @@ namespace CardGame
         public void commonMouseDown(object sender, MouseEventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            pb.DoDragDrop(pb, DragDropEffects.Move);
+            pb.DoDragDrop(pb, DragDropEffects.Copy);
         }
 
      
