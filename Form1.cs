@@ -1,3 +1,6 @@
+using CardGame.Properties;
+using System.Media;
+
 namespace CardGame
 {
     public partial class Form1 : Form
@@ -5,6 +8,9 @@ namespace CardGame
 
         //public static Card[] deck = new Card[52];
         public static Board? board;
+         SoundPlayer soundPlayer = new SoundPlayer();
+        
+
 
         Random rnd = new Random();
         public Form1()
@@ -18,6 +24,7 @@ namespace CardGame
             Deck deck = new Deck();
             deck.ShuffleDeck();
             board.DealCards(deck);
+            
         }
         public void commonDragEnter(object sender, DragEventArgs e)
         {
@@ -53,16 +60,19 @@ namespace CardGame
             if (draggedPB.Image == null)
             {
                 // If there's no image to move, do nothing
+                PlayBadSound();
                 return;
             }
             if (targetPB.Image != null)
             {
                 // If the target already has an image, do nothing
+                PlayBadSound();
                 return;
             }
             if (!CheckValidMove(draggedPB, targetPB))
             {
                 // If the move is not valid according to game rules, do nothing
+                PlayBadSound();
                 return;
             }
 
@@ -70,6 +80,7 @@ namespace CardGame
 
             // Transfer the image to the target PictureBox
             targetPB.Image = draggedPB.Image;
+            PlayGoodSound();
 
             // Remove the image from the source PictureBox (the "cut" part)
             draggedPB.Image = null;
@@ -112,6 +123,20 @@ namespace CardGame
 
             }
             return false;
+        }
+        public void PlayGoodSound()
+        {   
+            String soundFile = @"C:\Windows\Media\chimes.wav";
+            soundPlayer.SoundLocation = soundFile;
+            soundPlayer.Load();
+            soundPlayer.Play();
+        }
+        public void PlayBadSound()
+        {
+            String soundFile = @"C:\Windows\Media\Windows Critical Stop.wav";
+            soundPlayer.SoundLocation = soundFile;
+            soundPlayer.Load();
+            soundPlayer.Play();
         }
         public Boolean CheckForWin()
         {
