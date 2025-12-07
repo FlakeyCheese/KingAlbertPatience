@@ -105,6 +105,11 @@ namespace CardGame
         {
             PictureBox pb = (PictureBox)sender;
             pb.DoDragDrop(pb, DragDropEffects.Copy);
+            if (CheckForWin())
+            {
+                MessageBox.Show("You Win!");
+            }
+            
         }
         public Boolean CheckValidMove(PictureBox sourcePB, PictureBox targetPB)
         {
@@ -115,7 +120,8 @@ namespace CardGame
                 (int targetY, int targetX) = board.GetCardIndices(targetPB);
                 Card sourceCard = board.cards[sourceY, sourceX];
                 Card previousToTarget = board.cards[targetY , targetX-1];
-                //check if the move is valid NULL CHECK NEEDED HERE
+                //check if the move is valid check for null first
+                if (previousToTarget == null) return false;
                 if (previousToTarget.suit == sourceCard.suit && previousToTarget.value + 1 == sourceCard.value)
                 {
                     return true;
