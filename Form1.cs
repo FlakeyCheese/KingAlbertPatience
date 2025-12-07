@@ -51,7 +51,7 @@ namespace CardGame
             // The PictureBox that was dragged (the source)
             PictureBox draggedPB = (PictureBox)e.Data.GetData(typeof(PictureBox));
 
-            // --- 0. Validation Checks ---
+            //  Validation Checks ---
             if (targetPB == draggedPB)
             {
                 // If the source and target are the same, do nothing
@@ -76,20 +76,21 @@ namespace CardGame
                 return;
             }
 
-            // --- 1. Perform the Visual Cut and Paste (Move) ---
+            //  Perform the Visual Cut and Paste
 
             // Transfer the image to the target PictureBox
             targetPB.Image = draggedPB.Image;
             PlayGoodSound();
+            
 
             // Remove the image from the source PictureBox (the "cut" part)
             draggedPB.Image = null;
 
-            // --- 2. Update the Underlying Card Data (Crucial for Game State) ---
+            //  Update the Underlying Card Data 
 
             if (board != null)
             {
-                // You still need the GetCardIndices method in Board.cs (as discussed before)
+                // get the index of each card from the board
                 (int sourceY, int sourceX) = board.GetCardIndices(draggedPB);
                 (int targetY, int targetX) = board.GetCardIndices(targetPB);
 
@@ -100,6 +101,7 @@ namespace CardGame
                 // Set the source spot in the game array to null (the "cut" part)
                 board.cards[sourceY, sourceX] = null;
             }
+            CheckForLoss();
         }
         public void commonMouseDown(object sender, MouseEventArgs e)
         {
@@ -110,6 +112,7 @@ namespace CardGame
                 MessageBox.Show("You Win!");
             }
             
+
         }
         public Boolean CheckValidMove(PictureBox sourcePB, PictureBox targetPB)
         {
@@ -161,10 +164,30 @@ namespace CardGame
             }
             return true;
         }
-        public Boolean CheckForLoss()
+        public void CheckForLoss()
         {
             //scan every box to find kings. If all free spaces are after a king then lose;
-            return false;
+            int count = 4;
+            if (board != null)
+            {
+                
+                for (int y = 0; y < 4; y++)
+                {
+                    for (int x = 1; x < 14; x++)
+                    {
+                        if(board.cards[y, x] == null && board.cards[y, x-1] == null)
+                        {
+                            count--;
+                        }
+                        else if (board.cards[y, x] == null && board.cards[y, x - 1].value == 13)
+                        {
+                            count--;
+                        }
+                    }
+                }
+            }
+            if (count == 0) MessageBox.Show("no more moves possible. You lose");
+            else return;
 
         }
     }
