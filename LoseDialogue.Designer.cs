@@ -52,6 +52,7 @@
             btnPlayAgain.TabIndex = 1;
             btnPlayAgain.Text = "Play Again";
             btnPlayAgain.UseVisualStyleBackColor = true;
+            btnPlayAgain.Click += btnPlayAgain_Click;
             // 
             // btnExit
             // 
@@ -61,6 +62,7 @@
             btnExit.TabIndex = 1;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // label2
             // 

@@ -1,5 +1,6 @@
 using CardGame.Properties;
 using System.Media;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CardGame
 {
@@ -25,6 +26,7 @@ namespace CardGame
             deck.ShuffleDeck();
             board.DealCards(deck);
             this.Cursor = Cursors.WaitCursor;
+            timer1.Start();
             groupBox1.Location = new Point(1440, -1);
         }
         public void commonDragEnter(object sender, DragEventArgs e)
@@ -190,7 +192,11 @@ namespace CardGame
                     }
                 }
             }
-            if (count == 0) MessageBox.Show("no more moves possible. You lose");
+            if (count == 0)
+            {
+                LoseDialogue form = new LoseDialogue(this);
+                form.ShowDialog();
+            }
             else return;
 
         }
@@ -209,6 +215,15 @@ namespace CardGame
             }
             PlayGoodSound();
             this.Cursor = Cursors.Default;
+        }
+        public void GameStart(Deck deck)
+        {
+            
+            deck.ShuffleDeck();
+            board.DealCards(deck);
+            this.Cursor = Cursors.WaitCursor;
+            timer1.Start();
+
         }
     }
 }
