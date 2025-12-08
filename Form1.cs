@@ -218,8 +218,11 @@ namespace CardGame
         }
         public void GameStart(Deck deck)
         {
-            
-            deck.ShuffleDeck();
+            for (int y = 0; y < 4; y++)
+            {
+                board.pictureBoxes[y, 0].Image =null;
+            }
+                deck.ShuffleDeck();
             board.DealCards(deck);
             this.Cursor = Cursors.WaitCursor;
             timer1.Start();
