@@ -9,7 +9,7 @@ namespace CardGame
     public class Board
     {
         public Card[,] cards;
-        PictureBox[,] pictureBoxes;
+        public PictureBox[,] pictureBoxes;
         int currentXIndex = 0;//track the X index of the next available position in the row
         int currentYIndex = 0;//track which row we are on
         Form1 form; //reference to the main form to add picture boxes
@@ -29,7 +29,8 @@ namespace CardGame
                         Location = new Point(x * 110 + 10, yPosition),
                         BorderStyle = BorderStyle.Fixed3D,
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        AllowDrop = true
+                        AllowDrop = true,
+                        Enabled = false
                     };
                     form.Controls.Add(pictureBoxes[y,x]);
                     pictureBoxes[y,x].MouseDown += new MouseEventHandler(form.commonMouseDown);
@@ -52,7 +53,7 @@ namespace CardGame
                 }                
             }
             
-            moveAces();
+            form.timer1.Start();
         }
         public void moveAces()
         {

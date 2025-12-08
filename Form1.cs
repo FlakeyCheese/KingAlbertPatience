@@ -8,8 +8,8 @@ namespace CardGame
 
         //public static Card[] deck = new Card[52];
         public static Board? board;
-         SoundPlayer soundPlayer = new SoundPlayer();
-        
+        SoundPlayer soundPlayer = new SoundPlayer();
+
 
 
         Random rnd = new Random();
@@ -24,7 +24,7 @@ namespace CardGame
             Deck deck = new Deck();
             deck.ShuffleDeck();
             board.DealCards(deck);
-            
+            this.Cursor = Cursors.WaitCursor;
         }
         public void commonDragEnter(object sender, DragEventArgs e)
         {
@@ -32,12 +32,12 @@ namespace CardGame
             // Check if the data being dragged is a PictureBox
             if (e.Data.GetDataPresent(typeof(PictureBox)))
             {
-                // Allow the Move effect, which will show the correct cursor
+                // Allow the copy effect
                 e.Effect = DragDropEffects.Copy;
             }
             else
             {
-                // Otherwise, block the drop (shows the 'no entry' cursor)
+                // Disallow the drop
                 e.Effect = DragDropEffects.None;
             }
 
@@ -81,9 +81,9 @@ namespace CardGame
             // Transfer the image to the target PictureBox
             targetPB.Image = draggedPB.Image;
             PlayGoodSound();
-            
 
-            // Remove the image from the source PictureBox (the "cut" part)
+
+            // Remove the image from the source PictureBox 
             draggedPB.Image = null;
 
             //  Update the Underlying Card Data 
@@ -98,7 +98,7 @@ namespace CardGame
                 Card movedCard = board.cards[sourceY, sourceX];
                 board.cards[targetY, targetX] = movedCard;
 
-                // Set the source spot in the game array to null (the "cut" part)
+                // Set the source spot in the game array to null 
                 board.cards[sourceY, sourceX] = null;
             }
             CheckForLoss();
@@ -111,7 +111,7 @@ namespace CardGame
             {
                 MessageBox.Show("You Win!");
             }
-            
+
 
         }
         public Boolean CheckValidMove(PictureBox sourcePB, PictureBox targetPB)
@@ -122,9 +122,10 @@ namespace CardGame
                 (int sourceY, int sourceX) = board.GetCardIndices(sourcePB);
                 (int targetY, int targetX) = board.GetCardIndices(targetPB);
                 Card sourceCard = board.cards[sourceY, sourceX];
-                Card previousToTarget = board.cards[targetY , targetX-1];
-                //check if the move is valid check for null first
+                Card previousToTarget = board.cards[targetY, targetX - 1];
+                //check if thecard to the left of target is null
                 if (previousToTarget == null) return false;
+                //check if the move is valid 
                 if (previousToTarget.suit == sourceCard.suit && previousToTarget.value + 1 == sourceCard.value)
                 {
                     return true;
@@ -134,8 +135,8 @@ namespace CardGame
             return false;
         }
         public void PlayGoodSound()
-        {   
-            if (RBSoundOn.Checked== false) return;
+        {
+            if (RBSoundOn.Checked == false) return;
             String soundFile = @"C:\Windows\Media\chimes.wav";
             soundPlayer.SoundLocation = soundFile;
             soundPlayer.Load();
@@ -172,12 +173,12 @@ namespace CardGame
             int count = 4;
             if (board != null)
             {
-                
+
                 for (int y = 0; y < 4; y++)
                 {
                     for (int x = 1; x < 14; x++)
                     {
-                        if(board.cards[y, x] == null && board.cards[y, x-1] == null)
+                        if (board.cards[y, x] == null && board.cards[y, x - 1] == null)
                         {
                             count--;
                         }
@@ -191,6 +192,21 @@ namespace CardGame
             if (count == 0) MessageBox.Show("no more moves possible. You lose");
             else return;
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            board?.moveAces();
+            timer1.Stop();
+            for (int y = 0; y < 4; y++)
+            {
+                for (int x = 0; x < 14; x++)
+                {
+                    board.pictureBoxes[y, x].Enabled = true;
+                }
+            }
+            this.Cursor = Cursors.Default;
         }
     }
 }
