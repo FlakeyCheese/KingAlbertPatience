@@ -25,6 +25,7 @@ namespace CardGame
             deck.ShuffleDeck();
             board.DealCards(deck);
             this.Cursor = Cursors.WaitCursor;
+            groupBox1.Location = new Point(1440, -1);
         }
         public void commonDragEnter(object sender, DragEventArgs e)
         {
@@ -206,6 +207,7 @@ namespace CardGame
                     board.pictureBoxes[y, x].Enabled = true;
                 }
             }
+            PlayGoodSound();
             this.Cursor = Cursors.Default;
         }
     }
