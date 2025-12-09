@@ -35,7 +35,7 @@
             // 
             // btnPlayAgain
             // 
-            btnPlayAgain.Location = new Point(145, 93);
+            btnPlayAgain.Location = new Point(148, 70);
             btnPlayAgain.Name = "btnPlayAgain";
             btnPlayAgain.Size = new Size(75, 23);
             btnPlayAgain.TabIndex = 1;
@@ -45,7 +45,7 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(25, 93);
+            btnExit.Location = new Point(148, 126);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(75, 23);
             btnExit.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 161);
+            ClientSize = new Size(384, 161);
             ControlBox = false;
             Controls.Add(lblGameOverMsg);
             Controls.Add(btnExit);

@@ -9,7 +9,7 @@ namespace CardGame
     public class Deck
     {
        public Card[] cards = new Card[52];
-       string imageFolder = @"..\..\..\cards";
+       string imageFolder = @"..\..\..\cards_2";
         public Deck ()
         {
             Card[] cards = CardLoader.LoadCards(imageFolder);

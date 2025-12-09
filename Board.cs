@@ -29,6 +29,7 @@ namespace CardGame
                         Location = new Point(x * 110 + 10, yPosition),
                         BorderStyle = BorderStyle.Fixed3D,
                         SizeMode = PictureBoxSizeMode.StretchImage,
+                        Padding = new Padding(3),
                         AllowDrop = true,
                         Enabled = false
                     };
