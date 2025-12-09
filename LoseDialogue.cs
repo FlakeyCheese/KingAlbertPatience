@@ -13,10 +13,11 @@ namespace CardGame
     public partial class LoseDialogue : Form
     {
         Form1 form1;
-        public LoseDialogue(Form1 form1)
+        public LoseDialogue(Form1 form1, string msg)
         {
             InitializeComponent();
             this.form1 = form1;
+            lblGameOverMsg.Text = msg;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace CardGame
         {
             Deck deck = new Deck();
             form1.GameStart(deck);
+            this.Close();
         }
     }
 }

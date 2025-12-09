@@ -110,10 +110,8 @@ namespace CardGame
         {
             PictureBox pb = (PictureBox)sender;
             pb.DoDragDrop(pb, DragDropEffects.Copy);
-            if (CheckForWin())
-            {
-                MessageBox.Show("You Win!");
-            }
+            CheckForWin();
+            
 
 
         }
@@ -153,7 +151,7 @@ namespace CardGame
             soundPlayer.Load();
             soundPlayer.Play();
         }
-        public Boolean CheckForWin()
+        public void CheckForWin()
         {
             if (board != null)
             {
@@ -163,12 +161,13 @@ namespace CardGame
                     {
                         if (board.cards[y, x] != null)
                         {
-                            return false;
+                            return;
                         }
                     }
                 }
             }
-            return true;
+            LoseDialogue form = new LoseDialogue(this, "Well done....YOU WIN");
+            form.ShowDialog();
         }
         public void CheckForLoss()
         {
@@ -194,7 +193,7 @@ namespace CardGame
             }
             if (count == 0)
             {
-                LoseDialogue form = new LoseDialogue(this);
+                LoseDialogue form = new LoseDialogue(this,"No more moves available. GAME OVER");
                 form.ShowDialog();
             }
             else return;
