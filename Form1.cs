@@ -10,7 +10,7 @@ namespace CardGame
         //public static Card[] deck = new Card[52];
         public static Board? board;
         SoundPlayer soundPlayer = new SoundPlayer();
-
+        int score = 0;
 
 
         Random rnd = new Random();
@@ -86,6 +86,7 @@ namespace CardGame
             PlayGoodSound();
 
 
+
             // Remove the image from the source PictureBox 
             draggedPB.Image = null;
 
@@ -104,6 +105,7 @@ namespace CardGame
                 // Set the source spot in the game array to null 
                 board.cards[sourceY, sourceX] = null;
             }
+            CheckScorable(targetPB);
             CheckForLoss();
         }
         public void commonMouseDown(object sender, MouseEventArgs e)
@@ -111,7 +113,7 @@ namespace CardGame
             PictureBox pb = (PictureBox)sender;
             pb.DoDragDrop(pb, DragDropEffects.Copy);
             CheckForWin();
-            
+
 
 
         }
@@ -193,7 +195,7 @@ namespace CardGame
             }
             if (count == 0)
             {
-                LoseDialogue form = new LoseDialogue(this,"No more moves available. GAME OVER");
+                LoseDialogue form = new LoseDialogue(this, "No more moves available. GAME OVER");
                 form.ShowDialog();
             }
             else return;
@@ -202,7 +204,7 @@ namespace CardGame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
             board?.moveAces();
             timer1.Stop();
             for (int y = 0; y < 4; y++)
@@ -217,15 +219,28 @@ namespace CardGame
         }
         public void GameStart(Deck deck)
         {
+            score = 0;
             for (int y = 0; y < 4; y++)
             {
-                board.pictureBoxes[y, 0].Image =null;
+                board.pictureBoxes[y, 0].Image = null;
             }
-                deck.ShuffleDeck();
+            deck.ShuffleDeck();
             board.DealCards(deck);
             this.Cursor = Cursors.WaitCursor;
             timer1.Start();
 
+        }
+        public void CheckScorable(PictureBox targetPB)
+        {
+            if (board != null)
+            {
+                (int targetY, int targetX) = board.GetCardIndices(targetPB);//ugly code
+                if (targetY == 0 && board.cards[targetY, targetX].suit == "C" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
+                else if (targetY == 1 && board.cards[targetY, targetX].suit == "D" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
+                else if (targetY == 2 && board.cards[targetY, targetX].suit == "H" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
+                else if (targetY == 3 && board.cards[targetY, targetX].suit == "S" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
+                lblScore.Text = score.ToString();
+            }
         }
     }
 }

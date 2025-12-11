@@ -34,6 +34,8 @@
             RBSoundOff = new RadioButton();
             RBSoundOn = new RadioButton();
             timer1 = new System.Windows.Forms.Timer(components);
+            label2 = new Label();
+            lblScore = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,12 +91,33 @@
             timer1.Interval = 2000;
             timer1.Tick += timer1_Tick;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Ravie", 18F);
+            label2.Location = new Point(446, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 34);
+            label2.TabIndex = 3;
+            label2.Text = "Score";
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Font = new Font("Ravie", 18F);
+            lblScore.Location = new Point(582, 8);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(0, 34);
+            lblScore.TabIndex = 4;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1779, 712);
+            Controls.Add(lblScore);
+            Controls.Add(label2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Name = "Form1";
@@ -114,5 +137,7 @@
         private RadioButton RBSoundOff;
         private RadioButton RBSoundOn;
         public System.Windows.Forms.Timer timer1;
+        private Label label2;
+        private Label lblScore;
     }
 }
