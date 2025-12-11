@@ -36,6 +36,8 @@
             timer1 = new System.Windows.Forms.Timer(components);
             label2 = new Label();
             lblScore = new Label();
+            label3 = new Label();
+            lblHighScore = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,13 +112,34 @@
             lblScore.Size = new Size(0, 34);
             lblScore.TabIndex = 4;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Ravie", 18F);
+            label3.Location = new Point(715, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(184, 34);
+            label3.TabIndex = 3;
+            label3.Text = "High Score";
+            // 
+            // lblHighScore
+            // 
+            lblHighScore.AutoSize = true;
+            lblHighScore.Font = new Font("Ravie", 18F);
+            lblHighScore.Location = new Point(930, 4);
+            lblHighScore.Name = "lblHighScore";
+            lblHighScore.Size = new Size(0, 34);
+            lblHighScore.TabIndex = 4;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1779, 712);
+            Controls.Add(lblHighScore);
             Controls.Add(lblScore);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
@@ -139,5 +162,7 @@
         public System.Windows.Forms.Timer timer1;
         private Label label2;
         private Label lblScore;
+        private Label label3;
+        private Label lblHighScore;
     }
 }

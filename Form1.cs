@@ -11,6 +11,8 @@ namespace CardGame
         public static Board? board;
         SoundPlayer soundPlayer = new SoundPlayer();
         int score = 0;
+        int highScore = 0;
+        private const string SCORE_FILE = "highscore.txt";
 
 
         Random rnd = new Random();
@@ -28,6 +30,8 @@ namespace CardGame
             this.Cursor = Cursors.WaitCursor;
             timer1.Start();
             groupBox1.Location = new Point(1440, -1);
+            highScore = LoadScore();
+            lblHighScore.Text = highScore.ToString();
         }
         public void commonDragEnter(object sender, DragEventArgs e)
         {
@@ -168,7 +172,8 @@ namespace CardGame
                     }
                 }
             }
-            LoseDialogue form = new LoseDialogue(this, "Well done....YOU WIN");
+            //check for high score
+            LoseDialogue form = new LoseDialogue(this, "Well done....YOU WIN", score);
             form.ShowDialog();
         }
         public void CheckForLoss()
@@ -195,7 +200,13 @@ namespace CardGame
             }
             if (count == 0)
             {
-                LoseDialogue form = new LoseDialogue(this, "No more moves available. GAME OVER");
+                //check for high score
+                if (score > highScore)
+                { 
+                    highScore = score;
+                    SaveScore(highScore);
+                }
+                LoseDialogue form = new LoseDialogue(this, "No more moves available. GAME OVER", score);
                 form.ShowDialog();
             }
             else return;
@@ -220,6 +231,8 @@ namespace CardGame
         public void GameStart(Deck deck)
         {
             score = 0;
+            lblScore.Text = score.ToString();
+            lblHighScore.Text = highScore.ToString();
             for (int y = 0; y < 4; y++)
             {
                 board.pictureBoxes[y, 0].Image = null;
@@ -241,6 +254,40 @@ namespace CardGame
                 else if (targetY == 3 && board.cards[targetY, targetX].suit == "S" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
                 lblScore.Text = score.ToString();
             }
+        }
+        private void SaveScore(int score)
+        {
+            try
+            {
+                File.WriteAllText(SCORE_FILE, score.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving score: " + ex.Message);
+            }
+        }
+        private int LoadScore()
+        {
+            try
+            {
+                if (File.Exists(SCORE_FILE))
+                {
+                    string scoreText = File.ReadAllText(SCORE_FILE);
+                    if (int.TryParse(scoreText, out int savedScore))
+                    {
+                        return savedScore;
+                    }
+                }
+                else
+                {
+                    SaveScore(0); // Create the file with a default score of 0
+                }
+            }
+            catch (System.IO.IOException ex)
+            {
+                MessageBox.Show("Error loading score: " + ex.Message);
+            }
+            return 0;
         }
     }
 }

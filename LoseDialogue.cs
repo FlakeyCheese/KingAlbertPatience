@@ -13,11 +13,12 @@ namespace CardGame
     public partial class LoseDialogue : Form
     {
         Form1 form1;
-        public LoseDialogue(Form1 form1, string msg)
+        public LoseDialogue(Form1 form1, string msg, int score)
         {
             InitializeComponent();
             this.form1 = form1;
             lblGameOverMsg.Text = msg;
+            lblScore.Text = "Score: " + score.ToString();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

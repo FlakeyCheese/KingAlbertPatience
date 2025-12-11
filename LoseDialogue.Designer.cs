@@ -31,6 +31,7 @@
             btnPlayAgain = new Button();
             btnExit = new Button();
             lblGameOverMsg = new Label();
+            lblScore = new Label();
             SuspendLayout();
             // 
             // btnPlayAgain
@@ -63,12 +64,23 @@
             lblGameOverMsg.TabIndex = 2;
             lblGameOverMsg.Text = "message";
             // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Font = new Font("Perpetua Titling MT", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScore.Location = new Point(12, 9);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(85, 20);
+            lblScore.TabIndex = 2;
+            lblScore.Text = "message";
+            // 
             // LoseDialogue
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 161);
             ControlBox = false;
+            Controls.Add(lblScore);
             Controls.Add(lblGameOverMsg);
             Controls.Add(btnExit);
             Controls.Add(btnPlayAgain);
@@ -88,5 +100,6 @@
         private Button btnPlayAgain;
         private Button btnExit;
         public Label lblGameOverMsg;
+        public Label lblScore;
     }
 }
