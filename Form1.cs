@@ -296,5 +296,10 @@ namespace CardGame
             Help helpform = new Help();
             helpform.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GameStart(new Deck());
+        }
     }
 }

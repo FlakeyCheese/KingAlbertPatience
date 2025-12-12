@@ -39,6 +39,7 @@
             label3 = new Label();
             lblHighScore = new Label();
             button1 = new Button();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -134,13 +135,27 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.YellowGreen;
+            button1.Font = new Font("Ravie", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Location = new Point(1237, 11);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 5;
             button1.Text = "HELP";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.LightCoral;
+            button2.Font = new Font("Ravie", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(1143, 11);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 6;
+            button2.Text = "GIVE UP";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
@@ -148,6 +163,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1779, 712);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(lblHighScore);
             Controls.Add(lblScore);
@@ -177,5 +193,6 @@
         private Label label3;
         private Label lblHighScore;
         private Button button1;
+        private Button button2;
     }
 }

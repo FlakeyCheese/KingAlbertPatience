@@ -38,6 +38,7 @@
             label9 = new Label();
             label10 = new Label();
             button1 = new Button();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -140,6 +141,16 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Ravie", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(12, 232);
+            label6.Name = "label6";
+            label6.Size = new Size(670, 22);
+            label6.TabIndex = 1;
+            label6.Text = "8.One point is given for each card moved to the correct place.";
+            // 
             // Help
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -148,6 +159,7 @@
             AutoSize = true;
             ClientSize = new Size(682, 300);
             Controls.Add(button1);
+            Controls.Add(label6);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -176,5 +188,6 @@
         private Label label9;
         private Label label10;
         private Button button1;
+        private Label label6;
     }
 }
