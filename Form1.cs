@@ -32,6 +32,7 @@ namespace CardGame
             groupBox1.Location = new Point(1440, -1);
             highScore = LoadScore();
             lblHighScore.Text = highScore.ToString();
+
         }
         public void commonDragEnter(object sender, DragEventArgs e)
         {
@@ -202,7 +203,7 @@ namespace CardGame
             {
                 //check for high score
                 if (score > highScore)
-                { 
+                {
                     highScore = score;
                     SaveScore(highScore);
                 }
@@ -288,6 +289,12 @@ namespace CardGame
                 MessageBox.Show("Error loading score: " + ex.Message);
             }
             return 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Help helpform = new Help();
+            helpform.ShowDialog();
         }
     }
 }

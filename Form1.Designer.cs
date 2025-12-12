@@ -38,6 +38,7 @@
             lblScore = new Label();
             label3 = new Label();
             lblHighScore = new Label();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,12 +132,23 @@
             lblHighScore.Size = new Size(0, 34);
             lblHighScore.TabIndex = 4;
             // 
+            // button1
+            // 
+            button1.Location = new Point(1237, 11);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 5;
+            button1.Text = "HELP";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1779, 712);
+            Controls.Add(button1);
             Controls.Add(lblHighScore);
             Controls.Add(lblScore);
             Controls.Add(label3);
@@ -164,5 +176,6 @@
         private Label lblScore;
         private Label label3;
         private Label lblHighScore;
+        private Button button1;
     }
 }
