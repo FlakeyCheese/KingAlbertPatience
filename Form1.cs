@@ -173,7 +173,16 @@ namespace CardGame
                     }
                 }
             }
+
+            // adjust score
+            score = 0;
+            AdjustScore();
             //check for high score
+            if (score > highScore)
+            {
+                highScore = score;
+                SaveScore(highScore);
+            }
             LoseDialogue form = new LoseDialogue(this, "Well done....YOU WIN", score);
             form.ShowDialog();
         }
@@ -201,6 +210,9 @@ namespace CardGame
             }
             if (count == 0)
             {
+                //adjust score
+                score = 0;
+                AdjustScore();
                 //check for high score
                 if (score > highScore)
                 {
@@ -209,6 +221,8 @@ namespace CardGame
                 }
                 LoseDialogue form = new LoseDialogue(this, "No more moves available. GAME OVER", score);
                 form.ShowDialog();
+                
+                
             }
             else return;
 
@@ -254,6 +268,22 @@ namespace CardGame
                 else if (targetY == 2 && board.cards[targetY, targetX].suit == "H" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
                 else if (targetY == 3 && board.cards[targetY, targetX].suit == "S" && board.cards[targetY, targetX].value == targetX + 1) { score++; }
                 lblScore.Text = score.ToString();
+            }
+        }
+        public void AdjustScore() 
+        {
+            for (int y = 0; y < 4; y++)
+            {
+                for (int x = 0; x < 14; x++)
+                {
+                    if (board.cards[y, x] != null)
+                    {
+                        if (y == 0 && board.cards[y, x].suit == "C" && board.cards[y, x].value == x + 1) { score++; }
+                        else if (y == 1 && board.cards[y, x].suit == "D" && board.cards[y, x].value == x + 1) { score++; }
+                        else if (y == 2 && board.cards[y, x].suit == "H" && board.cards[y, x].value == x + 1) { score++; }
+                        else if (y == 3 && board.cards[y, x].suit == "S" && board.cards[y, x].value == x + 1) { score++; }
+                    }
+                }
             }
         }
         private void SaveScore(int score)

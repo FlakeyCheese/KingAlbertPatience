@@ -18,7 +18,7 @@ namespace CardGame
             InitializeComponent();
             this.form1 = form1;
             lblGameOverMsg.Text = msg;
-            lblScore.Text = "Score: " + score.ToString();
+            lblScore.Text = "Total Cards in Correct Position: " + score.ToString();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
