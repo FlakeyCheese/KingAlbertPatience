@@ -10,8 +10,7 @@ namespace CardGame
     {
         public Card[,] cards;
         public PictureBox[,] pictureBoxes;
-        int currentXIndex = 0;//track the X index of the next available position in the row
-        int currentYIndex = 0;//track which row we are on
+       
         Form1 form; //reference to the main form to add picture boxes
 
         public Board(Form1 form1, int yPosition)

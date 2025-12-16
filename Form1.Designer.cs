@@ -135,11 +135,12 @@
             // 
             // button1
             // 
+            button1.AutoSize = true;
             button1.BackColor = Color.YellowGreen;
             button1.Font = new Font("Ravie", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1237, 11);
+            button1.Location = new Point(1119, 11);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(75, 27);
             button1.TabIndex = 5;
             button1.Text = "HELP";
             button1.UseVisualStyleBackColor = false;
@@ -147,11 +148,12 @@
             // 
             // button2
             // 
+            button2.AutoSize = true;
             button2.BackColor = Color.LightCoral;
             button2.Font = new Font("Ravie", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(1143, 11);
+            button2.Location = new Point(1016, 12);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(75, 27);
             button2.TabIndex = 6;
             button2.Text = "GIVE UP";
             button2.UseVisualStyleBackColor = false;

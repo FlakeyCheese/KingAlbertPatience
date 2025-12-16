@@ -9,6 +9,119 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cards_2\10C.png" />
+    <None Remove="cards_2\10D.png" />
+    <None Remove="cards_2\10H.png" />
+    <None Remove="cards_2\10S.png" />
+    <None Remove="cards_2\11C.png" />
+    <None Remove="cards_2\11D.png" />
+    <None Remove="cards_2\11H.png" />
+    <None Remove="cards_2\11S.png" />
+    <None Remove="cards_2\12C.png" />
+    <None Remove="cards_2\12D.png" />
+    <None Remove="cards_2\12H.png" />
+    <None Remove="cards_2\12S.png" />
+    <None Remove="cards_2\13C.png" />
+    <None Remove="cards_2\13D.png" />
+    <None Remove="cards_2\13H.png" />
+    <None Remove="cards_2\13S.png" />
+    <None Remove="cards_2\1C.png" />
+    <None Remove="cards_2\1D.png" />
+    <None Remove="cards_2\1H.png" />
+    <None Remove="cards_2\1S.png" />
+    <None Remove="cards_2\2C.png" />
+    <None Remove="cards_2\2D.png" />
+    <None Remove="cards_2\2H.png" />
+    <None Remove="cards_2\2S.png" />
+    <None Remove="cards_2\3C.png" />
+    <None Remove="cards_2\3D.png" />
+    <None Remove="cards_2\3H.png" />
+    <None Remove="cards_2\3S.png" />
+    <None Remove="cards_2\4C.png" />
+    <None Remove="cards_2\4D.png" />
+    <None Remove="cards_2\4H.png" />
+    <None Remove="cards_2\4S.png" />
+    <None Remove="cards_2\5C.png" />
+    <None Remove="cards_2\5D.png" />
+    <None Remove="cards_2\5H.png" />
+    <None Remove="cards_2\5S.png" />
+    <None Remove="cards_2\6C.png" />
+    <None Remove="cards_2\6D.png" />
+    <None Remove="cards_2\6H.png" />
+    <None Remove="cards_2\6S.png" />
+    <None Remove="cards_2\7C.png" />
+    <None Remove="cards_2\7D.png" />
+    <None Remove="cards_2\7H.png" />
+    <None Remove="cards_2\7S.png" />
+    <None Remove="cards_2\8C.png" />
+    <None Remove="cards_2\8D.png" />
+    <None Remove="cards_2\8H.png" />
+    <None Remove="cards_2\8S.png" />
+    <None Remove="cards_2\9C.png" />
+    <None Remove="cards_2\9D.png" />
+    <None Remove="cards_2\9H.png" />
+    <None Remove="cards_2\9S.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="cards_2\10D.png" />
+    <EmbeddedResource Include="cards_2\10H.png" />
+    <EmbeddedResource Include="cards_2\10S.png" />
+    <EmbeddedResource Include="cards_2\11C.png" />
+    <EmbeddedResource Include="cards_2\11D.png" />
+    <EmbeddedResource Include="cards_2\11H.png" />
+    <EmbeddedResource Include="cards_2\11S.png" />
+    <EmbeddedResource Include="cards_2\12C.png" />
+    <EmbeddedResource Include="cards_2\12D.png" />
+    <EmbeddedResource Include="cards_2\12H.png" />
+    <EmbeddedResource Include="cards_2\12S.png" />
+    <EmbeddedResource Include="cards_2\13C.png" />
+    <EmbeddedResource Include="cards_2\13D.png" />
+    <EmbeddedResource Include="cards_2\13H.png" />
+    <EmbeddedResource Include="cards_2\13S.png" />
+    <EmbeddedResource Include="cards_2\1C.png" />
+    <EmbeddedResource Include="cards_2\1D.png" />
+    <EmbeddedResource Include="cards_2\1H.png" />
+    <EmbeddedResource Include="cards_2\1S.png" />
+    <EmbeddedResource Include="cards_2\2C.png" />
+    <EmbeddedResource Include="cards_2\2D.png" />
+    <EmbeddedResource Include="cards_2\2H.png" />
+    <EmbeddedResource Include="cards_2\2S.png" />
+    <EmbeddedResource Include="cards_2\3C.png" />
+    <EmbeddedResource Include="cards_2\3D.png" />
+    <EmbeddedResource Include="cards_2\3H.png" />
+    <EmbeddedResource Include="cards_2\3S.png" />
+    <EmbeddedResource Include="cards_2\4C.png" />
+    <EmbeddedResource Include="cards_2\4D.png" />
+    <EmbeddedResource Include="cards_2\4H.png" />
+    <EmbeddedResource Include="cards_2\4S.png" />
+    <EmbeddedResource Include="cards_2\5C.png" />
+    <EmbeddedResource Include="cards_2\5D.png" />
+    <EmbeddedResource Include="cards_2\5H.png" />
+    <EmbeddedResource Include="cards_2\5S.png" />
+    <EmbeddedResource Include="cards_2\6C.png" />
+    <EmbeddedResource Include="cards_2\6D.png" />
+    <EmbeddedResource Include="cards_2\6H.png" />
+    <EmbeddedResource Include="cards_2\6S.png" />
+    <EmbeddedResource Include="cards_2\7C.png" />
+    <EmbeddedResource Include="cards_2\7D.png" />
+    <EmbeddedResource Include="cards_2\7H.png" />
+    <EmbeddedResource Include="cards_2\7S.png" />
+    <EmbeddedResource Include="cards_2\8C.png" />
+    <EmbeddedResource Include="cards_2\8D.png" />
+    <EmbeddedResource Include="cards_2\8H.png" />
+    <EmbeddedResource Include="cards_2\8S.png" />
+    <EmbeddedResource Include="cards_2\9C.png" />
+    <EmbeddedResource Include="cards_2\9D.png" />
+    <EmbeddedResource Include="cards_2\9H.png" />
+    <EmbeddedResource Include="cards_2\9S.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="cards_2\10C.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
